@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="../Dynamic.Adapters.In/Dynamic.Adapters.In.csproj" />
+    <ProjectReference Include="../Dynamic.Adapters.Out/Dynamic.Adapters.Out.csproj" />
+    <ProjectReference Include="../Dynamic.Application/Dynamic.Application.csproj" />
   </ItemGroup>
 
 </Project>

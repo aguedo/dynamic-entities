@@ -1,8 +1,8 @@
-using System;
+using Dynamic.Application.Ports.In.Shared;
 
 namespace Dynamic.Application.Ports.In.CreateEntityType;
 
 public interface ICreateEntityTypeUseCase
 {
-    Task<CreateEntityTypeOutput> CreateAsync(CreateEntityTypeInput createEntityType);
+    Task<Output<CreateEntityTypeOutput>> CreateAsync(CreateEntityTypeInput createEntityType);
 }

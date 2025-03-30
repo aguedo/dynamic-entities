@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Ports/Out/" />
     <Folder Include="Services/" />
     <Folder Include="UseCases/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Dynamic.Domain/Dynamic.Domain.csproj" />
   </ItemGroup>
 
 </Project>

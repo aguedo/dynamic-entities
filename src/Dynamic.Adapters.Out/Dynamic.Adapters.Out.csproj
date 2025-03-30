@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../Dynamic.Application/Dynamic.Application.csproj" />
+    <ProjectReference Include="../Dynamic.Domain/Dynamic.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
