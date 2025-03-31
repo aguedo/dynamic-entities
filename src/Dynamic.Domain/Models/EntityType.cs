@@ -2,8 +2,7 @@ namespace Dynamic.Domain.Models;
 
 public class EntityType
 {
-    private readonly List<Field> _fields = [];
-
+    private readonly List<Field> _fields = new List<Field>();
     public string? Id { get; set; }
     public string? Name { get; set; }
     public IReadOnlyList<Field> Fields => _fields;
