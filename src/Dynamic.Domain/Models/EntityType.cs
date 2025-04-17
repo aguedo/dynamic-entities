@@ -2,15 +2,16 @@ namespace Dynamic.Domain.Models;
 
 public class EntityType
 {
-    private readonly List<Field> _fields = new List<Field>();
+    private readonly List<IField> _fields = [];
+
     public string? Id { get; set; }
     public string? Name { get; set; }
-    public IReadOnlyList<Field> Fields => _fields;
+    public IReadOnlyList<IField> Fields => _fields;
 
-    public void AddField(Field field)
+    public void AddFields(params IEnumerable<IField> fields)
     {
-        ArgumentNullException.ThrowIfNull(field);
-        _fields.Add(field);
+        ArgumentNullException.ThrowIfNull(fields);
+        _fields.AddRange(fields);
     }
 
     public bool IsValid(out List<Error> errors)
