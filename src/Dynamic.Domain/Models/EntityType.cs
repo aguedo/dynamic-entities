@@ -8,10 +8,22 @@ public class EntityType
     public string? Name { get; set; }
     public IReadOnlyList<IField> Fields => _fields;
 
-    public void AddFields(params IEnumerable<IField> fields)
+    public void AddFields(params IField[] fields)
     {
         ArgumentNullException.ThrowIfNull(fields);
-        _fields.AddRange(fields);
+        foreach (var field in fields)
+        {
+            var newName = field.Header?.Name;
+            if (string.IsNullOrWhiteSpace(newName))
+            {
+                // Skip fields with no name
+                continue;
+            }
+            if (!_fields.Any(existing => existing.Header?.Name == newName))
+            {
+                _fields.Add(field);
+            }
+        }
     }
 
     public bool IsValid(out List<Error> errors)
