@@ -1,3 +1,5 @@
+using System.Text.Json.Nodes;
+
 namespace Dynamic.Domain.Models;
 
 public class EntityType
@@ -16,8 +18,7 @@ public class EntityType
             var newName = field.Header?.Name;
             if (string.IsNullOrWhiteSpace(newName))
             {
-                // Skip fields with no name
-                continue;
+                throw new ArgumentException($"Field name cannot be null or whitespace. Fields: {System.Text.Json.JsonSerializer.Serialize(fields)}");
             }
             if (!_fields.Any(existing => existing.Header?.Name == newName))
             {
