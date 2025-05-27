@@ -10,7 +10,7 @@ public class EntityType
     public string? Name { get; set; }
     public IReadOnlyList<IField> Fields => _fields;
 
-    public void AddFields(params IField[] fields)
+    public void AddFields(params IEnumerable<IField> fields)
     {
         ArgumentNullException.ThrowIfNull(fields);
         foreach (var field in fields)
