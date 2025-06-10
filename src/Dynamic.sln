@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic.Adapters.Out", "Dyn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic.Domain", "Dynamic.Domain\Dynamic.Domain.csproj", "{33E597B3-BEE3-4236-8D1E-1FC87E7B651D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic.Tests", "Dynamic.Tests\Dynamic.Tests.csproj", "{447D221F-3D81-4E40-AA6D-247D37EA2335}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,18 @@ Global
 		{33E597B3-BEE3-4236-8D1E-1FC87E7B651D}.Release|x64.Build.0 = Release|Any CPU
 		{33E597B3-BEE3-4236-8D1E-1FC87E7B651D}.Release|x86.ActiveCfg = Release|Any CPU
 		{33E597B3-BEE3-4236-8D1E-1FC87E7B651D}.Release|x86.Build.0 = Release|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Debug|x64.Build.0 = Debug|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Debug|x86.Build.0 = Debug|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Release|x64.ActiveCfg = Release|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Release|x64.Build.0 = Release|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Release|x86.ActiveCfg = Release|Any CPU
+		{447D221F-3D81-4E40-AA6D-247D37EA2335}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
