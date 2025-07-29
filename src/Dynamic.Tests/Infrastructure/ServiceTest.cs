@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Dynamic.Adapters.In.EntityType;
 using Dynamic.Application.Ports.In.CreateEntityType;
-using Dynamic.Domain.Models;
 using Dynamic.Application.Ports.In.Shared;
 
 namespace Dynamic.Tests
