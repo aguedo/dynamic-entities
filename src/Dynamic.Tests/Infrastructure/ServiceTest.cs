@@ -10,6 +10,9 @@ using FluentAssertions;
 using Dynamic.Adapters.In.EntityType;
 using Dynamic.Application.Ports.In.CreateEntityType;
 using Dynamic.Application.Ports.In.Shared;
+using Dynamic.Application.Ports.In.EntityTypeQuery;
+using Dynamic.Application.Ports.In.UpdateEntityType;
+using Dynamic.Application.Ports.In.DeleteEntityType;
 
 namespace Dynamic.Tests
 {
@@ -58,7 +61,15 @@ namespace Dynamic.Tests
                 .ReturnsAsync(expectedOutput);
 
             // Simulate controller call
-            var controller = new EntityTypeController(mockUseCase.Object);
+            var mockQueryUseCase = new Mock<IEntityTypeQueryUseCase>();
+            var mockUpdateUseCase = new Mock<IUpdateEntityTypeUseCase>();
+            var mockDeleteUseCase = new Mock<IDeleteEntityTypeUseCase>();
+
+            var controller = new EntityTypeController(
+                mockUseCase.Object,
+                mockQueryUseCase.Object,
+                mockUpdateUseCase.Object,
+                mockDeleteUseCase.Object);
             var actionResult = await controller.Create(request);
 
             // Extract the response from IActionResult
