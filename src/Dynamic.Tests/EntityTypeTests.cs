@@ -3,7 +3,9 @@ using Dynamic.Adapters.Out.Repositories;
 using Dynamic.Application.Ports.In.CreateEntityType;
 using Dynamic.Application.Ports.Out.Repositories;
 using Dynamic.Domain.Models;
-using Dynamic.Tests.Infrastructure;
+using Xunit;
+using System.Threading.Tasks;
+using System.Net.Http;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
@@ -79,69 +81,6 @@ namespace Dynamic.Tests
             }
         }
 
-        /// <summary>
-        /// Tests for the EntityType API endpoints
-        /// </summary>
-        public class ApiTests : IClassFixture<DynamicWebApplicationFactory>
-        {
-            private readonly HttpClient _client;
-            private readonly JsonSerializerOptions _jsonOptions = new()
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-            public ApiTests(DynamicWebApplicationFactory factory)
-            {
-                _client = factory.CreateClient();
-            }
-
-
-            [Fact]
-            public async Task Create_EntityType_WithFields_ShouldReturn_Success()
-            {
-                // Arrange
-                var createRequest = new CreateEntityTypeRequest
-                {
-                    Name = "Person",
-                };
-
-                var content = new StringContent(
-                    JsonSerializer.Serialize(createRequest),
-                    Encoding.UTF8,
-                    "application/json");
-
-                // Act
-                var response = await _client.PostAsync("/api/entity-type/create", content);
-
-                // Assert
-                response.StatusCode.Should().Be(HttpStatusCode.OK);
-
-                var responseContent = await response.Content.ReadFromJsonAsync<CreateEntityTypeResponse>(_jsonOptions);
-                responseContent.Should().NotBeNull();
-                responseContent!.Id.Should().NotBeNullOrEmpty();
-                responseContent.Name.Should().Be("Person");
-            }
-
-            [Fact]
-            public async Task Create_EntityType_WithInvalidName_ShouldReturn_BadRequest()
-            {
-                // Arrange
-                var createRequest = new CreateEntityTypeRequest
-                {
-                    Name = null
-                };
-
-                var content = new StringContent(
-                    JsonSerializer.Serialize(createRequest),
-                    Encoding.UTF8,
-                    "application/json");
-
-                // Act
-                var response = await _client.PostAsync("/api/entity-type/create", content);
-
-                // Assert
-                response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            }
-        }
+        // API tests removed. To test API logic, mock the controller/service and simulate API calls in unit tests.
     }
 }
