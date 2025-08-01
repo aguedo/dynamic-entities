@@ -14,5 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../Dynamic.Domain/Dynamic.Domain.csproj" />
+    <ProjectReference Include="../Dynamic.Adapters.Out/Dynamic.Adapters.Out.csproj" />
   </ItemGroup>
 </Project>
