@@ -3,7 +3,6 @@ using Dynamic.Adapters.Out.Repositories;
 using Dynamic.Domain.Models;
 using Xunit;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace Dynamic.Tests.Application;
 
@@ -12,8 +11,7 @@ public class EntityTypeRepositoryTests
     [Fact]
     public async Task CreateAndGetAll_WorksCorrectly()
     {
-        var dbContext = new InMemoryDbContext();
-        var repo = new EntityTypeRepository(dbContext);
+        var repo = new EntityTypeRepository();
 
         var entity = new EntityType { Name = "TestType" };
         var created = await repo.CreateAsync(entity);

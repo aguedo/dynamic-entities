@@ -5,21 +5,17 @@ namespace Dynamic.Adapters.Out.Repositories;
 
 public class EntityTypeRepository : IEntityTypeRepository
 {
-    private readonly IGenericDbContext _dbContext;
+    private readonly List<EntityType> _entities = new();
 
-    public EntityTypeRepository(IGenericDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-
-    public async Task<EntityType> CreateAsync(EntityType entityType)
+    public Task<EntityType> CreateAsync(EntityType entityType)
     {
         entityType.Id = Guid.NewGuid().ToString();
-        return await _dbContext.AddAsync(entityType);
+        _entities.Add(entityType);
+        return Task.FromResult(entityType);
     }
 
-    public async Task<IEnumerable<EntityType>> GetAllAsync()
+    public Task<IEnumerable<EntityType>> GetAllAsync()
     {
-        return await _dbContext.GetAllAsync<EntityType>();
+        return Task.FromResult<IEnumerable<EntityType>>(_entities);
     }
 }
