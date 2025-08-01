@@ -1,3 +1,5 @@
+using Dynamic.Application.Ports.In.EntityTypeQuery;
+using Microsoft.Extensions.DependencyInjection;
 using Dynamic.Adapters.In.EntityType;
 using Dynamic.Adapters.Out.Repositories;
 using Dynamic.Application.Ports.In.CreateEntityType;
@@ -13,8 +15,10 @@ builder.Services.AddControllers()
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+
 builder.Services.AddScoped<ICreateEntityTypeUseCase, CreateEntityTypeHandler>();
 builder.Services.AddScoped<IEntityTypeRepository, EntityTypeRepository>();
+builder.Services.AddScoped<IEntityTypeQueryUseCase, EntityTypeQueryHandler>();
 
 var app = builder.Build();
 
