@@ -50,5 +50,16 @@ namespace Dynamic.Adapters.In.EntityType
             var entityTypes = await _entityTypeQueryUseCase.GetAllAsync();
             return Ok(entityTypes);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            var entityType = await _entityTypeQueryUseCase.GetByIdAsync(id);
+            if (entityType == null)
+            {
+                return NotFound();
+            }
+            return Ok(entityType);
+        }
     }
 }

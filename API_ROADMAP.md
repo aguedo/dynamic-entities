@@ -5,7 +5,7 @@ This roadmap outlines the steps to evolve the current API to match the capabilit
 
 ## 1. Core CRUD for Entity Types _(High Priority)_
 [x] List all Entity Types
-[ ] Get Entity Type by ID
+[x] Get Entity Type by ID
 [ ] Update Entity Type
 [ ] Delete Entity Type
 
