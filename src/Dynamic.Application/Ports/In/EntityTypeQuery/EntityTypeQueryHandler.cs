@@ -29,4 +29,8 @@ public class EntityTypeQueryHandler : IEntityTypeQueryUseCase
         entity.Name = name;
         return await _entityTypeRepository.UpdateAsync(entity);
     }
+    public async Task<bool> DeleteAsync(string id)
+    {
+        return await _entityTypeRepository.DeleteAsync(id);
+    }
 }

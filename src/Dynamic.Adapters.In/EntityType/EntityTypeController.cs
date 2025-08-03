@@ -72,5 +72,15 @@ namespace Dynamic.Adapters.In.EntityType
                 return NotFound();
             return Ok(updated);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var deleted = await _entityTypeQueryUseCase.DeleteAsync(id);
+            if (!deleted)
+                return NotFound();
+            return NoContent();
+        }
+
     }
 }
