@@ -6,6 +6,5 @@ public interface IEntityTypeQueryUseCase
 {
     Task<IEnumerable<EntityType>> GetAllAsync();
     Task<EntityType?> GetByIdAsync(string id);
-    Task<EntityType?> UpdateAsync(string id, string? name);
     Task<bool> DeleteAsync(string id);
 }

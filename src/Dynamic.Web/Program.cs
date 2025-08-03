@@ -1,5 +1,6 @@
+
+using Dynamic.Application.Ports.In.UpdateEntityType;
 using Dynamic.Application.Ports.In.EntityTypeQuery;
-using Microsoft.Extensions.DependencyInjection;
 using Dynamic.Adapters.In.EntityType;
 using Dynamic.Adapters.Out.Repositories;
 using Dynamic.Application.Ports.In.CreateEntityType;
@@ -19,6 +20,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<ICreateEntityTypeUseCase, CreateEntityTypeHandler>();
 builder.Services.AddScoped<IEntityTypeRepository, EntityTypeRepository>();
 builder.Services.AddScoped<IEntityTypeQueryUseCase, EntityTypeQueryHandler>();
+builder.Services.AddScoped<IUpdateEntityTypeUseCase, UpdateEntityTypeHandler>();
 
 var app = builder.Build();
 
