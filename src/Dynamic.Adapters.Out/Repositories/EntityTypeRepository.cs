@@ -18,4 +18,10 @@ public class EntityTypeRepository : IEntityTypeRepository
     {
         return Task.FromResult<IEnumerable<EntityType>>(_entities);
     }
+
+    public Task<EntityType?> GetByIdAsync(string id)
+    {
+        var entity = _entities.FirstOrDefault(e => e.Id == id);
+        return Task.FromResult(entity);
+    }
 }
