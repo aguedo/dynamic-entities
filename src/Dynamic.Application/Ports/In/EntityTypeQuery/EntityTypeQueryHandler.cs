@@ -21,4 +21,12 @@ public class EntityTypeQueryHandler : IEntityTypeQueryUseCase
     {
         return await _entityTypeRepository.GetByIdAsync(id);
     }
+    public async Task<EntityType?> UpdateAsync(string id, string? name)
+    {
+        var entity = await _entityTypeRepository.GetByIdAsync(id);
+        if (entity == null)
+            return null;
+        entity.Name = name;
+        return await _entityTypeRepository.UpdateAsync(entity);
+    }
 }
