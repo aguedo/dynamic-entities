@@ -9,4 +9,5 @@ public interface IEntityTypeRepository
     Task<IEnumerable<EntityType>> GetAllAsync();
     Task<EntityType?> GetByIdAsync(string id);
     Task<EntityType?> UpdateAsync(EntityType entityType);
+    Task<bool> DeleteAsync(string id);
 }

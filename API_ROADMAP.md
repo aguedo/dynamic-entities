@@ -7,7 +7,7 @@ This roadmap outlines the steps to evolve the current API to match the capabilit
 [x] List all Entity Types
 [x] Get Entity Type by ID
 [x] Update Entity Type
-[ ] Delete Entity Type
+[x] Delete Entity Type
 
 
 

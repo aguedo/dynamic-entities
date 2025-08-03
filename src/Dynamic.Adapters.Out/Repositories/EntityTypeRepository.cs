@@ -34,4 +34,12 @@ public class EntityTypeRepository : IEntityTypeRepository
         // Add field updates here if needed
         return Task.FromResult<EntityType?>(existing);
     }
+    public Task<bool> DeleteAsync(string id)
+    {
+        var entity = _entities.FirstOrDefault(e => e.Id == id);
+        if (entity == null)
+            return Task.FromResult(false);
+        _entities.Remove(entity);
+        return Task.FromResult(true);
+    }
 }
