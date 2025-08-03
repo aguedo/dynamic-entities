@@ -1,3 +1,5 @@
+
+
 using Dynamic.Application.Ports.In.CreateEntityType;
 using Dynamic.Application.Ports.In.EntityTypeQuery;
 using Dynamic.Application.Ports.In.Shared;
@@ -60,6 +62,15 @@ namespace Dynamic.Adapters.In.EntityType
                 return NotFound();
             }
             return Ok(entityType);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(string id, [FromBody] UpdateEntityTypeRequest request)
+        {
+            var updated = await _entityTypeQueryUseCase.UpdateAsync(id, request.Name);
+            if (updated == null)
+                return NotFound();
+            return Ok(updated);
         }
     }
 }

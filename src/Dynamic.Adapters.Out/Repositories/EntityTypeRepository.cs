@@ -24,4 +24,14 @@ public class EntityTypeRepository : IEntityTypeRepository
         var entity = _entities.FirstOrDefault(e => e.Id == id);
         return Task.FromResult(entity);
     }
+
+    public Task<EntityType?> UpdateAsync(EntityType entityType)
+    {
+        var existing = _entities.FirstOrDefault(e => e.Id == entityType.Id);
+        if (existing == null)
+            return Task.FromResult<EntityType?>(null);
+        existing.Name = entityType.Name;
+        // Add field updates here if needed
+        return Task.FromResult<EntityType?>(existing);
+    }
 }
