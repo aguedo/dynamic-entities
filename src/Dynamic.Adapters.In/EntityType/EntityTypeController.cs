@@ -1,3 +1,4 @@
+using Dynamic.Application.Ports.In.UpdateEntityType;
 
 
 using Dynamic.Application.Ports.In.CreateEntityType;
@@ -14,13 +15,16 @@ namespace Dynamic.Adapters.In.EntityType
     {
         private readonly ICreateEntityTypeUseCase _createEntityTypeUseCase;
         private readonly IEntityTypeQueryUseCase _entityTypeQueryUseCase;
+        private readonly IUpdateEntityTypeUseCase _updateEntityTypeUseCase;
 
         public EntityTypeController(
             ICreateEntityTypeUseCase createEntityTypeUseCase,
-            IEntityTypeQueryUseCase entityTypeQueryUseCase)
+            IEntityTypeQueryUseCase entityTypeQueryUseCase,
+            IUpdateEntityTypeUseCase updateEntityTypeUseCase)
         {
             _createEntityTypeUseCase = createEntityTypeUseCase;
             _entityTypeQueryUseCase = entityTypeQueryUseCase;
+            _updateEntityTypeUseCase = updateEntityTypeUseCase;
         }
 
         [HttpPost("create")]
@@ -67,7 +71,7 @@ namespace Dynamic.Adapters.In.EntityType
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateEntityTypeRequest request)
         {
-            var updated = await _entityTypeQueryUseCase.UpdateAsync(id, request.Name);
+            var updated = await _updateEntityTypeUseCase.UpdateAsync(id, request.Name);
             if (updated == null)
                 return NotFound();
             return Ok(updated);

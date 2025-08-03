@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Dynamic.Application.Ports.In.EntityTypeQuery;
+using Dynamic.Application.Ports.In.UpdateEntityType;
 using Dynamic.Adapters.Out.Repositories;
 using Dynamic.Domain.Models;
 using Xunit;
@@ -13,7 +13,7 @@ public class EntityTypeQueryHandlerUpdateTests
     {
         // Arrange
         var repo = new EntityTypeRepository();
-        var handler = new EntityTypeQueryHandler(repo);
+        var handler = new UpdateEntityTypeHandler(repo);
         var entity = new EntityType { Name = "OriginalName" };
         var created = await repo.CreateAsync(entity);
 
@@ -31,7 +31,7 @@ public class EntityTypeQueryHandlerUpdateTests
     {
         // Arrange
         var repo = new EntityTypeRepository();
-        var handler = new EntityTypeQueryHandler(repo);
+        var handler = new UpdateEntityTypeHandler(repo);
 
         // Act
         var updated = await handler.UpdateAsync("nonexistent-id", "Name");
