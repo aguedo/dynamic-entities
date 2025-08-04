@@ -1,8 +1,10 @@
 
 using Dynamic.Application.Ports.In.UpdateEntityType;
+using Dynamic.Application.Ports.In.DeleteEntityType;
 using Dynamic.Application.Ports.In.EntityTypeQuery;
 using Dynamic.Adapters.In.EntityType;
 using Dynamic.Adapters.Out.Repositories;
+
 using Dynamic.Application.Ports.In.CreateEntityType;
 using Dynamic.Application.Ports.Out.Repositories;
 
@@ -17,6 +19,7 @@ builder.Services.AddControllers()
 builder.Services.AddOpenApi();
 
 
+builder.Services.AddScoped<IDeleteEntityTypeUseCase, DeleteEntityTypeHandler>();
 builder.Services.AddScoped<ICreateEntityTypeUseCase, CreateEntityTypeHandler>();
 builder.Services.AddScoped<IEntityTypeRepository, EntityTypeRepository>();
 builder.Services.AddScoped<IEntityTypeQueryUseCase, EntityTypeQueryHandler>();
