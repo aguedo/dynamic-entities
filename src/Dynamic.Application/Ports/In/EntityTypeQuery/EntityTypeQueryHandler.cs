@@ -21,8 +21,4 @@ public class EntityTypeQueryHandler : IEntityTypeQueryUseCase
     {
         return await _entityTypeRepository.GetByIdAsync(id);
     }
-    public async Task<bool> DeleteAsync(string id)
-    {
-        return await _entityTypeRepository.DeleteAsync(id);
-    }
 }

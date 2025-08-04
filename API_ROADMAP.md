@@ -3,11 +3,14 @@
 
 This roadmap outlines the steps to evolve the current API to match the capabilities of the Relativity Objects API.
 
+
 ## 1. Core CRUD for Entity Types _(High Priority)_
 [x] List all Entity Types
 [x] Get Entity Type by ID
-[x] Update Entity Type
-[x] Delete Entity Type
+[x] Update Entity Type (refactored, tested)
+[x] Delete Entity Type (refactored, tested)
+
+**Status:** All core CRUD endpoints for Entity Types are implemented, refactored for clean architecture, and fully tested.
 
 
 

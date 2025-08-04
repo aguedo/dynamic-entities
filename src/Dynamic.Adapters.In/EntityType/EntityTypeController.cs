@@ -1,4 +1,5 @@
 using Dynamic.Application.Ports.In.UpdateEntityType;
+using Dynamic.Application.Ports.In.DeleteEntityType;
 
 
 using Dynamic.Application.Ports.In.CreateEntityType;
@@ -16,15 +17,18 @@ namespace Dynamic.Adapters.In.EntityType
         private readonly ICreateEntityTypeUseCase _createEntityTypeUseCase;
         private readonly IEntityTypeQueryUseCase _entityTypeQueryUseCase;
         private readonly IUpdateEntityTypeUseCase _updateEntityTypeUseCase;
+        private readonly IDeleteEntityTypeUseCase _deleteEntityTypeUseCase;
 
         public EntityTypeController(
             ICreateEntityTypeUseCase createEntityTypeUseCase,
             IEntityTypeQueryUseCase entityTypeQueryUseCase,
-            IUpdateEntityTypeUseCase updateEntityTypeUseCase)
+            IUpdateEntityTypeUseCase updateEntityTypeUseCase,
+            IDeleteEntityTypeUseCase deleteEntityTypeUseCase)
         {
             _createEntityTypeUseCase = createEntityTypeUseCase;
             _entityTypeQueryUseCase = entityTypeQueryUseCase;
             _updateEntityTypeUseCase = updateEntityTypeUseCase;
+            _deleteEntityTypeUseCase = deleteEntityTypeUseCase;
         }
 
         [HttpPost("create")]
@@ -80,7 +84,7 @@ namespace Dynamic.Adapters.In.EntityType
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var deleted = await _entityTypeQueryUseCase.DeleteAsync(id);
+            var deleted = await _deleteEntityTypeUseCase.DeleteAsync(id);
             if (!deleted)
                 return NotFound();
             return NoContent();
